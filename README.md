@@ -1,99 +1,70 @@
-# Fitted
+# Fitted 🤝
 
-Fitted generates personalized cold outreach emails for job seekers. You paste a job posting URL, upload your resume as a PDF or text file, and click **Generate Email**. The backend scrapes the posting text, extracts your resume text, and sends both to Anthropic Claude (`claude-sonnet-4-20250514`) to produce a short, human-sounding outreach email.
+Cold emails that actually sound like you.
 
-## Prerequisites
+Built with React, Node/Express, and the Anthropic Claude API.
 
-- [Node.js](https://nodejs.org/) (LTS recommended)
-- An [Anthropic API key](https://console.anthropic.com/)
+## What it does
 
-## Setup
+Fitted helps job seekers write cold outreach emails that feel human, specific, and worth sending. You paste a job URL, upload your resume, answer a fun personal question, and the app generates a short punchy email tailored to the role. The result sounds like a real person wrote it, not a generic cover letter.
 
-1. **Backend environment**
+## Features
 
-   Open `server/.env` and set your key (replace the placeholder):
+- Scrapes job postings directly from the URL
+- Reads your resume as a PDF
+- Asks you a random fun question to add personality to the email
+- Generates a short, punchy cold email using Claude AI
+- Suggests a subject line
+- One-click copy to clipboard
+- Clean dark UI, mobile responsive
 
+## Tech Stack
+
+- Frontend: React + Vite
+- Backend: Node.js + Express
+- AI: Anthropic Claude (`claude-sonnet-4-20250514`)
+- PDF parsing: `pdf-parse`
+- Web scraping: Axios + Cheerio
+
+## Getting Started
+
+1. Clone the repo
+   ```bash
+   git clone <your-repo-url>
+   cd fitted
+   ```
+2. Add your API key to `server/.env`
    ```env
-   ANTHROPIC_API_KEY=sk-ant-api03-...
+   ANTHROPIC_API_KEY=your_key_here
    ```
-
-2. **Install dependencies**
-
-   Backend (from the project root):
-
-   ```powershell
-   cd c:\Users\jesth\fitted\server
+3. Install backend dependencies
+   ```bash
+   cd server
    npm install
    ```
-
-   Frontend:
-
-   ```powershell
-   cd c:\Users\jesth\fitted
+4. Install frontend dependencies
+   ```bash
+   cd ..
    npm install
    ```
+5. Run the backend
+   ```bash
+   cd server
+   npm start
+   ```
+6. Run the frontend (in a second terminal)
+   ```bash
+   cd .
+   npm run dev
+   ```
+7. Open `http://localhost:5173`
 
-## Run the app
+## Environment Variables
 
-You need **two** terminals: one for the API, one for the Vite dev server. The frontend proxies `/api` to `http://localhost:3001`.
+- `ANTHROPIC_API_KEY`: Your Anthropic API key from [console.anthropic.com](https://console.anthropic.com)
 
-**Terminal 1 — API**
+## Why I built this
 
-```powershell
-cd c:\Users\jesth\fitted\server
-npm start
-```
+Cold emailing recruiters is painful. Most emails sound the same. I built Fitted to generate emails that are short, specific, and actually reflect your personality — because the cow-named-after-me-in-the-Philippines energy should come through in your outreach too.
 
-**Terminal 2 — frontend**
-
-```powershell
-cd c:\Users\jesth\fitted
-npm run dev
-```
-
-Then open the URL Vite prints (usually `http://localhost:5173`).
-
-### Run both from one PowerShell window (optional)
-
-```powershell
-cd c:\Users\jesth\fitted
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd c:\Users\jesth\fitted\server; npm start"
-npm run dev
-```
-
-This opens a second window for the server and runs the frontend in the current window.
-
-## API behavior
-
-- `POST /api/email` (multipart form data)
-  - `jobUrl` (string)
-  - `resumeFile` (PDF or TXT file)
-  - `fallbackJobText` (optional string; used when URL scraping is blocked)
-- Response:
-  - `email` (generated cold email text)
-  - `subjectSuggestion` (simple suggested subject line)
-
-The Claude prompt instructs the model to:
-
-- Write a 4-5 sentence personalized cold outreach email
-- Mention the specific role/context from the job posting
-- Highlight 1-2 relevant resume points
-- End with a 15-minute chat call to action
-- Return only the email text (no subject line, no commentary)
-
-If a job board blocks scraping, the app returns `SCRAPE_FAILED`; paste the job description into the fallback field in the UI and retry.
-
-## What goes in `.env`
-
-| Variable               | Description                                      |
-| ---------------------- | ------------------------------------------------ |
-| `ANTHROPIC_API_KEY` | Your secret key from the Anthropic console. |
-
-Optional: set `PORT` in `server/.env` if you need a port other than `3001` (update the Vite proxy in `vite.config.js` to match).
-
-## Project layout
-
-- `src/` — React (Vite) UI
-- `server/` — Express API and Claude integration
-
-Do not commit real API keys. Keep `server/.env` local or use your team’s secret management.
+Built by Jesthan Pham
