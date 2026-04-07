@@ -287,3 +287,11 @@ ${typeof funFact === 'string' ? funFact.trim() || 'None provided' : 'None provid
 app.listen(PORT, () => {
   console.log(`Fitted API listening on http://localhost:${PORT}`)
 })
+
+app.get("/", (req, res) => {
+  res.send("backend running")
+})
+
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API works" })
+})
