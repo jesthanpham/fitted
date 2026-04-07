@@ -274,6 +274,12 @@ ${typeof funFact === 'string' ? funFact.trim() || 'None provided' : 'None provid
     })
   } catch (err) {
     console.error(err)
+    if (err?.status === 401) {
+      return res.status(401).json({
+        error:
+          'Backend auth failed. Check your ANTHROPIC_API_KEY in Railway environment variables.',
+      })
+    }
     const status = err?.status === 400 ? 400 : 502
     if (err?.message?.includes('Resume file is required')) {
       return res.status(400).json({ error: "Don't forget to upload your resume!" })
@@ -284,14 +290,14 @@ ${typeof funFact === 'string' ? funFact.trim() || 'None provided' : 'None provid
   }
 })
 
-app.listen(PORT, () => {
-  console.log(`Fitted API listening on http://localhost:${PORT}`)
-})
-
 app.get("/", (req, res) => {
   res.send("backend running")
 })
 
 app.get("/api/test", (req, res) => {
   res.json({ message: "API works" })
+})
+
+app.listen(PORT, () => {
+  console.log(`Fitted API listening on http://localhost:${PORT}`)
 })

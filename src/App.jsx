@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const API_URL = '/api/email'
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') ||
+  (import.meta.env.DEV ? '' : 'https://fitted-production-df94.up.railway.app')
+const API_URL = `${API_BASE_URL}/api/email`
 const FUN_QUESTIONS = [
   'Do you have any unusual pets or animals in your life?',
   "What's the most random job or thing you've ever done?",
