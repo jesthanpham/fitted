@@ -1,0 +1,445 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.header {
+  margin-bottom: 1rem;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.logo {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.header__name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.header__tagline {
+  font-size: clamp(1.7rem, 4.2vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--fg);
+  margin: 0;
+  max-width: 22ch;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  max-width: 52ch;
+  margin: 0 0 2rem;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.field__label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.875rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.field textarea.field__input {
+  min-height: 280px;
+  resize: vertical;
+}
+
+.field input.field__input {
+  min-height: auto;
+}
+
+.field__input::placeholder {
+  color: var(--muted-2);
+}
+
+.field__input:hover {
+  border-color: var(--border-hover);
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.field__file {
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 0.6rem 0.75rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.field__file:hover {
+  border-color: var(--border-hover);
+}
+
+.field__file:focus-within {
+  outline: none;
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.field__file::file-selector-button {
+  margin-right: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--fg);
+  padding: 0.4rem 0.65rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+.field__hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted-2);
+}
+
+.fun-question {
+  margin: 1.2rem 0 0.55rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+
+.fun-question__intro {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fun-question__prompt {
+  margin: 0 0 0.7rem;
+  font-size: 0.95rem;
+  color: var(--fg);
+}
+
+.fun-question__input {
+  min-height: auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  padding: 0.65rem 1.35rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.btn--secondary {
+  padding: 0.65rem 1.35rem;
+  background: var(--surface-2);
+  color: var(--fg);
+  border-color: var(--border);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  border-color: var(--border-hover);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 88%, white);
+}
+
+.btn--primary:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.btn__spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid color-mix(in srgb, var(--accent-fg) 25%, transparent);
+  border-top-color: var(--accent-fg);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn--ghost {
+  padding: 0.45rem 0.85rem;
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  color: var(--fg);
+  border-color: var(--border-hover);
+  background: var(--surface-2);
+}
+
+.btn--copied {
+  background: color-mix(in srgb, #22c55e 20%, var(--surface));
+  border-color: color-mix(in srgb, #22c55e 55%, var(--border));
+  color: #86efac;
+}
+
+.banner {
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: 0 0 1.1rem;
+  text-align: left;
+}
+
+.banner--error {
+  background: color-mix(in srgb, var(--danger) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, var(--border));
+  color: color-mix(in srgb, var(--danger) 85%, var(--fg));
+}
+
+.output-section {
+  text-align: left;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.output-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.65rem;
+}
+
+.output-section__title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.output-panel {
+  min-height: 200px;
+  padding: 1rem 1.125rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  position: relative;
+}
+
+.subject-box {
+  margin: 0 0 0.9rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--fg);
+  background: var(--surface);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  position: relative;
+}
+
+.desktop-copy-btn {
+  display: inline-flex;
+}
+
+.mobile-copy-btn {
+  display: none;
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--muted);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.mobile-copy-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mobile-copy-btn:hover:not(:disabled) {
+  color: var(--fg);
+  border-color: var(--border-hover);
+}
+
+.mobile-copy-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.mobile-copy-btn--copied {
+  color: #86efac;
+  border-color: color-mix(in srgb, #22c55e 55%, var(--border));
+  background: color-mix(in srgb, #22c55e 20%, var(--surface));
+}
+
+.is-placeholder {
+  color: var(--muted-2);
+}
+
+.output-panel__text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--fg);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.output-panel__placeholder {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--muted-2);
+  line-height: 1.5;
+}
+
+.output-panel__loading {
+  color: var(--muted-2);
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 1.2rem 0.95rem 2rem;
+  }
+
+  .lede {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .panels {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .fun-question,
+  .output-section,
+  .field {
+    width: 100%;
+  }
+
+  .actions {
+    gap: 0.6rem;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+  }
+
+  .output-panel,
+  .subject-box {
+    width: 100%;
+  }
+
+  .output-section__head {
+    gap: 0.5rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .desktop-copy-btn {
+    display: none;
+  }
+
+  .mobile-copy-btn {
+    display: inline-flex;
+  }
+
+}
