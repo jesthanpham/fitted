@@ -121,7 +121,9 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header__brand">
-          <span className="logo" aria-hidden="true" />
+          <span className="logo" role="img" aria-label="Handshake">
+            🤝
+          </span>
           <span className="header__name">Fitted</span>
         </div>
         <h1 className="header__tagline">Cold emails that actually sound like you.</h1>

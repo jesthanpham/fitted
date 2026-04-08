@@ -16,11 +16,9 @@
 }
 
 .logo {
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 35%, transparent);
+  font-size: 1.35rem;
+  line-height: 1;
+  user-select: none;
 }
 
 .header__name {
