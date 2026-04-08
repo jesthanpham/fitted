@@ -4,6 +4,8 @@ Cold emails that actually sound like you.
 
 Built with React, Node/Express, and the Anthropic Claude API.
 
+<img width="3840" height="2160" alt="image" src="https://github.com/user-attachments/assets/64df19da-0158-4634-8f3d-cdb308eb2997" />
+
 ## What it does
 
 Fitted helps job seekers write cold outreach emails that feel human, specific, and worth sending. You paste a job URL, upload your resume, answer a fun personal question, and the app generates a short punchy email tailored to the role. The result sounds like a real person wrote it, not a generic cover letter.
