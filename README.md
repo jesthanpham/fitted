@@ -4,7 +4,7 @@ Cold emails that actually sound like you.
 
 Built with React, Node/Express, and the Anthropic Claude API.
 
-<img width="3840" height="2160" alt="image" src="https://github.com/user-attachments/assets/64df19da-0158-4634-8f3d-cdb308eb2997" />
+<img width="3840" height="2160" alt="image" src="https://github.com/user-attachments/assets/36fd8b10-d09a-4405-9e18-db5ce6bfff27" />
 
 ## What it does
 
